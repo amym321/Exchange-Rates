@@ -99,19 +99,19 @@ class Landing extends Component {
                     <div className="container relative mx-auto">
                         <div className="items-center flex flex-wrap">
                         <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                            <div className="pr-12">
-                            <h1 className="text-white font-semibold text-5xl" data-aos="fade-up">
-                                X-Change <br></br>
-                                Currency Converter
-                            </h1>
-                            {route === 'signin' || route === 'register'
-                            ? <p className="mt-4 text-lg text-white " data-aos="fade-right" data-aos-delay="1000">
-                                Currency exchange rates provided in an accurate and timely display. 
-                                Convert your currency into a choice of more than 50 currencies.                             
-                            </p>
-                            : null
-                            }
-                            </div>
+                            
+                                <h1 className="text-white font-semibold text-5xl" data-aos="fade-up">
+                                    X-Change <br></br>
+                                    Currency Converter
+                                </h1>
+                                {route === 'signin' || route === 'register'
+                                ? <p className="mt-4 text-lg text-white " data-aos="fade-right" data-aos-delay="1000">
+                                    Currency exchange rates provided in an accurate and timely display. 
+                                    Convert your currency into a choice of more than 50 currencies.                             
+                                </p>
+                                : null
+                                }
+                            
                         </div>
         
                         </div>
@@ -221,8 +221,8 @@ class Landing extends Component {
                                                 <ExchangeRate />
                                                 <countryData /> */}
 
-                        <div className="flex flex-wrap items-center mt-32">
-                            <div className="w-full md:w-5/12 px-4  mr-auto ml-auto" data-aos="fade-up" data-aos-delay="1400">
+                        <div className="flex flex-wrap items-center mt-6">
+                            <div className="w-full md:w-6/12 px-4  mr-auto ml-auto" data-aos="fade-up" data-aos-delay="1400">
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                                     <div className="px-4 py-5 flex-auto">
                                         <div className="mt-2 mb-4 text-gray-600">
