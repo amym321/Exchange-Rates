@@ -40,16 +40,16 @@ class Signin extends React.Component {
     render() {
         const { onRouteChange } = this.props;
         return (
-            <article className="br3 ba  w-100 mw6 shadow-5 center">
+            <article className="br3 ba w-100 mw6 shadow-5 center bg-near-white">
                 <main className="pa4 ">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-                        <legend className="text-xl font-semibold">Sign In</legend>
+                        <legend className="text-xl font-semibold text-gray-800">Sign In</legend><br></br>
                         {/* <legend className="f1 fw6 ph0 mh0 ">Sign In</legend> */}
                         <div className="mt3">
                             <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                             <input 
-                                className="pa2 input-reset ba bg-transparent hover-bg-blue w-100" 
+                                className="pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
                                 type="email" 
                                 name="email-address"  
                                 id="email-address"
@@ -59,7 +59,7 @@ class Signin extends React.Component {
                         <div className="mv3">
                             <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
                             <input  
-                                className="b pa2 input-reset ba bg-transparent hover-bg-blue  w-100" 
+                                className="b pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
                                 type="password" 
                                 name="password"  
                                 id="password"
@@ -70,7 +70,7 @@ class Signin extends React.Component {
                         <div >
                             <input 
                                 onClick={this.onSubmitSignIn} 
-                                className="b ph3 pv2 input-reset ba bg-transparent grow pointer f6 dib" 
+                                className="b ph3 pv2 input-reset ba bg-transparent bg-transparent hover-bg-white grow pointer f6 dib" 
                                 type="submit" 
                                 value="Sign In"
                             />

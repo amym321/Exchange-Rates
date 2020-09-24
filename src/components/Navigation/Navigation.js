@@ -8,20 +8,25 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
             <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
                 <p 
                     onClick={() => onRouteChange('signout')}  
-                    className='f3 link dim white b underline pa3 pointer'>Sign Out
+                    className='f3 link dim b underline pa3 pointer'>Sign Out
                 </p>
             </nav>
         );
     } else {
         return (
-            <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
+            <nav>
+            {/* <nav style={{display: 'flex', justifyContent: 'flex-end'}}> */}
                 <p 
                     onClick={() => onRouteChange('signin')}  
-                    className='f3 link dim white b underline pa3 pointer'>Sign In
+                    className='font-semibold mx-1 text-white p-3 text-center inline-flex items-center justify-center w-35 h-12 mb-5 shadow-lg rounded-full bg-blue-400 pointer'>
+                    {/* className='f3 link dim white b underline pa3 pointer'> */}
+                    Sign In
                 </p>
                 <p 
                     onClick={() => onRouteChange('register')}  
-                    className='f3 link dim white b underline pa3 pointer'>Register
+                    className='font-semibold mx-1 text-white p-3 text-center inline-flex items-center justify-center w-35 h-12 mb-5 shadow-lg rounded-full bg-blue-400 pointer'>
+                    {/* className='f3 link dim white b underline pa3 pointer'> */}
+                    Register
                 </p>
             </nav>
         )
@@ -29,3 +34,8 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
 }
 
 export default Navigation;
+
+
+{/* <div className="mx-1 text-white p-3 text-center inline-flex items-center justify-center w-35 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+<p>Sign In</p>
+</div> */}
