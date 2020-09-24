@@ -7,7 +7,6 @@ import CurrencyForm from './components/CurrencyForm/CurrencyForm';
 // import ExchangeRate from './components/ExchangeRate/ExchangeRate';
 // import CountryData from './components/CountryData/CountryData';
 import AOS from 'aos';
-import './App.css';
 import Background from './images/goldcurrency1.jpg';
 // import GoldEuro from './images/goldcurrency2.jpg';
 // import GoldYen from './images/goldcurrency4.png';
@@ -26,7 +25,7 @@ const initialState = {
 	imageUrl: '',
 	box: {},
     // route: 'signin',
-    route: 'home',
+    route: 'signin',
 	isSignedIn: false,
 	user: {
 		id: '',
@@ -201,6 +200,16 @@ class Landing extends Component {
                         </div>
                         </div>
                     </div>
+
+                    <div className="relative pt-32 pb-32 flex content-center items-center justify-center mt-24">
+                        <div className="absolute w-full h-full bg-center bg-cover">
+                            <video fluid={false} width={"100%"} height={"100%"} overflow-hidden loop muted autoPlay
+                                style={{objectFit: "cover"}}>
+                                <source fluid={false}  src={Money} type="video/mp4" />
+                            </video>
+                        </div>
+                    </div>
+
                 </section>
                 
 
