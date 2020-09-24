@@ -147,7 +147,7 @@ class Landing extends Component {
                 {/* <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} /> */}
         {/* ************* if route === 'signin' || route === 'register' ***************** */}
                 {route === 'signin' || route === 'register'
-                ? <section className="pb-20 bg-gray-300 -mt-24">             
+                ? <section className=" bg-gray-300 -mt-24">             
                     <div className="container mx-auto px-4">
                 
                         <div className="flex flex-wrap">
@@ -204,7 +204,7 @@ class Landing extends Component {
                 </section>
                 
 
-                : <section className="pb-20 bg-gray-300 -mt-24">
+                : <section className=" bg-gray-300 -mt-24">
 
                     <div className="container mx-auto px-4">
                                                 {/* <currencyForm />
@@ -256,92 +256,94 @@ class Landing extends Component {
 
                             <div className="flex flex-wrap items-center mt-32">
 
-                            <div className="w-full md:w-4/12 px-4 mr-auto ml-auto" data-aos="flip-left" data-aos-delay="1400">
-                                <div className="relative flex flex-col min-w-0 break-words bg-gray-200 w-full mb-6 shadow-lg rounded-lg">
-                                    <img
-                                        alt="..."
-                                        src={FlagA}
-                                        className="w-full align-middle rounded-t-lg"
-                                    />
-                                    <blockquote className="relative p-2 mb-2 text-center">
-                                        {/* <svg
-                                        preserveAspectRatio="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 583 95"
-                                        className="absolute left-0 w-full block"
-                                        style={{
-                                            height: "95px",
-                                            top: "-94px"
-                                        }}
-                                        >
-                                        <polygon
-                                            points="-30,95 583,95 583,65"
-                                            className="text-pink-600 fill-current"
-                                        ></polygon>
-                                        </svg> */}
-                                        <h4 className="text-xl font-bold text-black">
-                                        Country A
-                                        </h4>
-                                        {/* <p className="text-md font-light mt-2 text-white">
-                                        The Arctic Ocean freezes every winter and much of the
-                                        sea-ice then thaws every summer, and that process will
-                                        continue whatever happens.
-                                        </p> */}
-                                    </blockquote>
+                                <div className="w-full md:w-4/12 px-4 mr-auto ml-auto" data-aos="flip-left" data-aos-delay="1400">
+                                    <div className="relative flex flex-col min-w-0 break-words bg-gray-200 w-full mb-6 shadow-lg rounded-lg">
+                                        <img
+                                            alt="..."
+                                            src={FlagA}
+                                            className="w-full align-middle rounded-t-lg"
+                                        />
+                                        <blockquote className="relative p-2 mb-2 text-center">
+                                            {/* <svg
+                                            preserveAspectRatio="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 583 95"
+                                            className="absolute left-0 w-full block"
+                                            style={{
+                                                height: "95px",
+                                                top: "-94px"
+                                            }}
+                                            >
+                                            <polygon
+                                                points="-30,95 583,95 583,65"
+                                                className="text-pink-600 fill-current"
+                                            ></polygon>
+                                            </svg> */}
+                                            <h4 className="text-xl font-bold text-black">
+                                            Country A
+                                            </h4>
+                                            {/* <p className="text-md font-light mt-2 text-white">
+                                            The Arctic Ocean freezes every winter and much of the
+                                            sea-ice then thaws every summer, and that process will
+                                            continue whatever happens.
+                                            </p> */}
+                                        </blockquote>
+                                    </div>
                                 </div>
-                            </div>
                         
-                            <div className="w-full md:w-4/12 px-4 mr-auto ml-auto" data-aos="flip-right" data-aos-delay="1600">
-                                <div className="relative flex flex-col min-w-0 break-words bg-gray-200 w-full mb-6 shadow-lg rounded-lg">
-                                    <img
-                                        alt="..."
-                                        src={FlagB}
-                                        className="w-full align-middle rounded-t-lg"
-                                    />
-                                    <blockquote className="relative p-2 mb-2 text-center">
-                                        {/* <svg
-                                        preserveAspectRatio="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 583 95"
-                                        className="absolute left-0 w-full block"
-                                        style={{
-                                            height: "95px",
-                                            top: "-94px"
-                                        }}
-                                        >
-                                        <polygon
-                                            points="-30,95 583,95 583,65"
-                                            className="text-pink-600 fill-current"
-                                        ></polygon>
-                                        </svg> */}
-                                        <h4 className="text-xl font-bold text-black">
-                                        Country B
-                                        </h4>
-                                        {/* <p className="text-md font-light mt-2 text-white">
-                                        The Arctic Ocean freezes every winter and much of the
-                                        sea-ice then thaws every summer, and that process will
-                                        continue whatever happens.
-                                        </p> */}
-                                    </blockquote>
+                                <div className="w-full md:w-4/12 px-4 mr-auto ml-auto" data-aos="flip-right" data-aos-delay="1600">
+                                    <div className="relative flex flex-col min-w-0 break-words bg-gray-200 w-full mb-6 shadow-lg rounded-lg">
+                                        <img
+                                            alt="..."
+                                            src={FlagB}
+                                            className="w-full align-middle rounded-t-lg"
+                                        />
+                                        <blockquote className="relative p-2 mb-2 text-center">
+                                            {/* <svg
+                                            preserveAspectRatio="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 583 95"
+                                            className="absolute left-0 w-full block"
+                                            style={{
+                                                height: "95px",
+                                                top: "-94px"
+                                            }}
+                                            >
+                                            <polygon
+                                                points="-30,95 583,95 583,65"
+                                                className="text-pink-600 fill-current"
+                                            ></polygon>
+                                            </svg> */}
+                                            <h4 className="text-xl font-bold text-black">
+                                            Country B
+                                            </h4>
+                                            {/* <p className="text-md font-light mt-2 text-white">
+                                            The Arctic Ocean freezes every winter and much of the
+                                            sea-ice then thaws every summer, and that process will
+                                            continue whatever happens.
+                                            </p> */}
+                                        </blockquote>
+                                    </div>
                                 </div>
-                            </div>
                            
                             </div>                           
                         </div>
 
 
 
+                    </div> 
+
+                    <div className="relative pt-32 pb-32 flex content-center items-center justify-center mt-32">
+                        <div className="absolute w-full h-full bg-center bg-cover">
+                            <video fluid={false} width={"100%"} height={"100%"} overflow-hidden loop muted autoPlay
+                                style={{objectFit: "cover"}}>
+                                <source fluid={false}  src={Money} type="video/mp4" />
+                            </video>
+                        </div>
                     </div>
-                    <div class="video-container">
-                        <video loop muted autoplay>
-                            <source src={Money} type="video/mp4" />
-                            {/* <source src="./images/papercurrency1.mp4" type="video/mp4" /> */}
-                        </video>
-                    </div>
+
                 </section>
-                
                 }
-            
             </main>
         </div>
     );
