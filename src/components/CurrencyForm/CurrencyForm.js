@@ -1,4 +1,7 @@
 import React from 'react';
+import CurrencyOption from 'CurrencyOptions';
+
+let InitialCurrency
 
 class CurrencyForm extends React.Component {
     constructor(props) {
@@ -40,44 +43,75 @@ class CurrencyForm extends React.Component {
     render() {
         const { onRouteChange } = this.props;
         return (
-            <article className="br3 ba w-100 mw6 shadow-5 center bg-near-white">
+            <article className="br3 ba w-100 mw6 shadow-5 center bg-gray-100">
                 <main className="pa4 ">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                         <legend className="text-xl font-semibold text-center text-gray-800">
-                            Enter Currency Information
+                            Enter Currency Information<br></br>
                         </legend><br></br>
+                        <p className="text-center">Get your conversion from one currency 
+                        to another as well as country information specific to the countries using the 
+                        two currencies you selected.</p><br></br>
                         {/* <legend className="f1 fw6 ph0 mh0 ">Sign In</legend> */}
                         <div className="mt3">
-                            <label className="db fw6 lh-copy f6" htmlFor="name">Amount</label>
-                            <input 
-                                className="pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
-                                // className="pa2 input-reset ba bg-transparent white hover-bg-black white hover-white w-100" 
-                                type="text" 
-                                name="name"  
-                                id="name"
-                                onChange = {this.onNameChange}
+                            <label className="db fw6 lh-copy f6 " htmlFor="name">Amount</label>
+                            <input required
+                                className="pa2 input-reset ba bg-transparent hover-bg-white w-100-ns w-40-l black" 
+                                type="number" 
+                                name="amount"  
+                                id="amount"
+                                onChange = {this.onAmountChange}
                                 />
                         </div>   
                         <div className="mt3">
-                            <label className="db fw6 lh-copy f6" htmlFor="email-address">Currency I Have</label>
-                            <input 
+                            <label className="db fw6 lh-copy f6" htmlFor="email-address">Initial Currency</label>
+                            <CurrencyOption/>
+                            {/* <select required
                                 className="pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
-                                type="email" 
-                                name="email-address"  
-                                id="email-address"
-                                onChange={this.onEmailChange}
-                            />
+                                type="text" 
+                                name="initialCurrency"  
+                                id="initialCurrency"
+                                onChange={this.onInitialCurrencyChange}
+                                // value={InitialCurrency}
+                            >
+                                <option>~Please select currency~</option>
+                                <option id="USD" id="United States of America">United States Dollar</option>
+                                <option id="EUR" id="France">Euro (used in France)</option>
+                                <option id="EUR" id="Austria">Euro (used in Austria)</option>
+                                <option id="EUR" id="Germany">Euro (used in Germany)</option>
+                                <option id="GBP" id="Britain">British Pound Sterling</option>
+                                <option id="MXN" id="Mexico">Mexican Peso</option>
+                                <option id="AED" id="United Arab Emirates">United Arab Emirates Dirham</option>
+                            </select> */}
+                            {/* <form action="/action_page.php" method="get">
+                                <label for="browser">Choose your browser from the list:</label>
+                                <input list="browsers" name="browser" id="browser">
+                                <datalist id="browsers">
+                                    <option value="Edge">
+                                    <option value="Firefox">
+                                </datalist>
+                            </form> */}
                         </div>
                         <div className="mv3">
-                            <label className="db fw6 lh-copy f6" htmlFor="password">Currency I Want</label>
-                            <input  
-                                className="b pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
-                                type="password" 
-                                name="password"  
-                                id="password"
-                                onChange={this.onPasswordChange}
-                            />
+                            <label className="db fw6 lh-copy f6" htmlFor="password">Converted To Currency</label>
+                            <select  required
+                                className="pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
+                                type="text" 
+                                name="convertedCurrency"  
+                                id="convertedCurrency"
+                                onChange={this.onConvertedCurrencyChange}
+                                // value="Converted Currency"
+                            >
+                                <option>~Please select currency~</option>
+                                <option id="USD" id="United States of America">United States Dollar</option>
+                                <option id="EUR" id="France">Euro (used in France)</option>
+                                <option id="EUR" id="Austria">Euro (used in Austria)</option>
+                                <option id="EUR" id="Germany">Euro (used in Germany)</option>
+                                <option id="GBP" id="Britain">British Pound Sterling</option>
+                                <option id="MXN" id="Mexico">Mexican Peso</option>
+                                <option id="AED" id="United Arab Emirates">United Arab Emirates Dirham</option>
+                            </select>
                         </div>
                             </fieldset>
                         <div className="text-center">
