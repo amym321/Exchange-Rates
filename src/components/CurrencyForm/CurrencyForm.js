@@ -2,7 +2,7 @@ import React from 'react';
 import Dropdown from 'react-dropdown';
 // import CurrencyOptions from './CurrencyOptions3';
 
-// function CurrencyForm(props) {  }       do this instead? 
+
 class CurrencyForm extends React.Component {
     constructor(props) {
         super(props)
@@ -14,17 +14,22 @@ class CurrencyForm extends React.Component {
             amountOut: 0,
             selected: ''
         }
-        this._onSelect = this._onSelect.bind(this)
+        this._onSelectFrom = this._onSelectFrom.bind(this)
+        this._onSelectTo = this._onSelectTo.bind(this)
     }
 
-    _onSelect (option) {
-        console.log('option.label ', option.label)
-        console.log('option.value ', option.value)
-        // this.setState({currencyFrom: option})
-        this.setState({selected: option.label})
+    _onSelectFrom (option) {
+        // console.log('option.label =', option.label)
+        // console.log('option.value =', option.value)
+        // this.setState({selected: option.label})
         this.setState({currencyFrom: option.value})
-        console.log('11 selected ', this.selected)
-        console.log('12', this.props.selected)
+    }
+
+    _onSelectTo (option) {
+        // console.log('option.label =', option.label)
+        // console.log('option.value =', option.value)
+        // this.setState({selected: option.label})
+        this.setState({currencyTo: option.value})
     }
 
     // onPasswordChange = (event) => {
@@ -73,54 +78,84 @@ class CurrencyForm extends React.Component {
     // }
 
     render() {
-        const { amountIn, selected, currencyFrom, currencyTo, amountOut, currency, onInputChange2 } = this.props;
+        const { amountIn, selected, currencyFrom, currencyTo, countryA, countryB, amountOut, currency, onInputChange2 } = this.props;
         const options = [
-            { value: 'X', label: '~Please select currency~' },
             { value: 'USD', label: 'United States Dollar' },
-            { value: 'EUR', label: 'Euro (used in France)' },
-            // { value: 'EUR', label: 'Euro (used in Germany)' },
-            // { value: 'EUR', label: 'Euro (used in Austria)' },
             { value: 'AUD', label: 'Australian Dollar' },
-            { value: 'MXN', label: 'Mexican Peso' },
-            { value: 'BLG', label: 'Bulgarian Lev' },
             { value: 'BRL', label: 'Brazilian Real' },
-            { value: 'CAD', label: 'Canadian Dollar' },
             { value: 'GBP', label: 'British Pound Sterling' },
-            { value: 'AED', label: 'United Arab Emirates Dirham' },
+            { value: 'BLG', label: 'Bulgarian Lev' },
+            { value: 'CAD', label: 'Canadian Dollar' },
+            { value: 'CLP', label: 'Chilean Peso' },
+            { value: 'CNY', label: 'Chinese Yuan' },            
+            { value: 'COP', label: 'Colombian Peso' },
+            { value: 'CZK', label: 'Czech Republic Koruna' },
+            { value: 'DKK', label: 'Danish Krone' },
+            { value: 'DOP', label: 'Dominican Peso' },
+            { value: 'EGP', label: 'Egyptian Pound' },
+            { value: 'EUR', label: 'Euro (used in France)' },
+            { value: 'EUR', label: 'Euro (used in Germany)' },
+            { value: 'EUR', label: 'Euro (used in Austria)' },
+            { value: 'EUR', label: 'Euro (used in Belgium)' },
+            { value: 'EUR', label: 'Euro (used in Greece)' },
+            { value: 'EUR', label: 'Euro (used in Ireland)' },
+            { value: 'EUR', label: 'Euro (used in Italy)' },
+            { value: 'EUR', label: 'Euro (used in Netherlands)' },
+            { value: 'EUR', label: 'Euro (used in Portugal)' },
+            { value: 'EUR', label: 'Euro (used in Spain)' },    
+            { value: 'GTQ', label: 'Guatemalan Quetzal' },
+            { value: 'HKD', label: 'Hong Kong Dollar' },
+            { value: 'HUF', label: 'Hungarian Forint' },
+            { value: 'IDR', label: 'Indonesian Rupiah' },
+            { value: 'ILS', label: 'Israeli New Sheqel"' },
+            { value: 'INR', label: 'Indian Rupee' },
+            { value: 'ISK', label: 'Icelandic Króna' },
+            { value: 'JPY', label: 'Japanese Yen' },
+            { value: 'KRW', label: 'South Korean Won' },
+            { value: 'MYR', label: 'Malaysian Ringgit"' },      
+            { value: 'MXN', label: 'Mexican Peso' },
+            { value: 'NOK', label: 'Norwegian Krone' },
+            { value: 'NZD', label: 'New Zealand Dollar' },
+            { value: 'PHP', label: 'Philippine Peso' },
+            { value: 'PLN', label: 'Polish Zloty' },
+            { value: 'RUB', label: 'Russian Ruble' },
+            { value: 'SAR', label: 'Saudi Riyal' },
+            { value: 'SEK', label: 'Swedish Krona' },
             { value: 'CHF', label: 'Swiss Franc' },
-            { value: 'CNY', label: 'Chinese Yuan' },
-            { value: 'CLP', label: 'Chilean Peso' }
+            { value: 'THB', label: 'Thai Baht' },
+            { value: 'TRY', label: 'Turkish Lira' },
+            { value: 'ZAR', label: 'South African Rand' },
+            { value: 'AED', label: 'United Arab Emirates Dirham' } 
         ]
         // const defaultOption = options[0];
         const defaultOption = this.state.selected
-        const placeHolderValue = typeof 
-            this.state.selected === 'string' 
-            ? this.state.selected 
-            : this.state.selected.label &&
-              this.state.currencyFrom.value
+        const placeHolderValue = typeof  
+        this.state.selected === 'string' 
+            ? this.state.selected       && this.state.currencyFrom       && this.state.countryA
+            : this.state.selected.label && this.state.currencyFrom.value && this.state.countryA.label 
         const arrowClosed = (
             <span className="arrow-closed" />
-          )
+        )
         const arrowOpen = (
             <span className="arrow-open" />
         )
 
         return (
             <article className="br3 ba w-100 mw6 shadow-5 center bg-gray-100">
-                <main className="pa4 ">
+                <main className="pa2 pa4-l">
                     <div className="measure">
                         <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                             <legend className="text-xl font-semibold text-center text-gray-800">
                                 Enter Currency Information<br></br>
                             </legend><br></br>
                             <p className="text-center">Get your conversion from one currency 
-                            to another as well as country information specific to the countries using the 
-                            two currencies you selected.</p><br></br>
+                                to another as well as country information specific to the countries using the 
+                                two currencies you selected.</p><br></br>
                             {/* <legend className="f1 fw6 ph0 mh0 ">Sign In</legend> */}
                             <div className="mt3">
                                 <label className="db fw6 lh-copy f6 " htmlFor="name">Amount</label>
                                 <input required
-                                    className="pa2 input-reset ba bg-transparent hover-bg-white w-100-ns w-40-l black" 
+                                    className="pa2 input-reset ba bg-transparent hover-bg-white w-100 w-40-ns black" 
                                     type="number" 
                                     name="amount"  
                                     id="amount"
@@ -130,42 +165,37 @@ class CurrencyForm extends React.Component {
                                     {console.log('4','<input>', 'amountIn =', amountIn)}
                             </div>   
                             <div className="mt3">
-                                <label className="db fw6 lh-copy f6" htmlFor="email-address">Initial Currency</label>
+                                <label className="db fw6 lh-copy f6">Initial Currency</label>
                                 {/* <GetOptions optionChoices={optionChoices}/> */}
                                 <Dropdown 
                                     className="pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
                                     arrowClosed={arrowClosed}
                                     arrowOpen={arrowOpen}
                                     options={options} 
-                                    onChange={this._onSelect} 
+                                    onChange={this._onSelectFrom} 
                                     value={defaultOption} 
-                                    placeholder="Select an option"                                                
+                                    placeholder="~Please select currency~"                                                
                                 />
-                                {console.log('8','Dropdown()', 'options =', options)}
-                                {console.log('14', selected)}
-                                {/* {console.log('9','Dropdown()', 'value =', value)} */}
-                                {/* {console.log('10','Dropdown()', 'selected param =', defaultOption)} */}
+                                {/* {console.log('8','Dropdown()', 'options =', options)} */}
+                                {/* {console.log('16 this.state.selected =', this.state.selected)} */}
+                                {console.log('17 this.state.currencyFrom =', this.state.currencyFrom)}
                             </div>
-                            {/* <div className="mt3">
-                                <label className="db fw6 lh-copy f6" 
-                                    htmlFor="email-address">Initial Currency</label>
-                                <CurrencyOptions  
-                                    currencyFrom={currencyFrom}
-                                    onInputChange2={this.onInputChange2}  />
-                                get props of currency and id from CurrencyOptions as 1st currency
-                                probably want to get passed back a generic currency and then move that to CurrencyOut
-                                {console.log('5','CurrencyOptions ()', 'currency =', currency)}
-                            </div> */}
-                            {/* <div className="mv3">
-                                <label className="db fw6 lh-copy f6" htmlFor="password">Converted To Currency</label>
-                                <CurrencyOptions  currencyTo={currencyTo}/>
-                                get props of currency and id from CurrencyOptions as 2nd currency
-                                probably want to get passed back a generic currency and then move that to CurrencyOut
-                                {console.log('6','CurrencyOptions ()', 'currencyTo =', currencyTo)}
-                                
-                                {console.log('?','CurrencyOptions ()', 'amountOut =', amountOut)}                                
-                            </div> */}
-                            </fieldset>
+                            <div className="mt3">
+                                <label className="db fw6 lh-copy f6" >Converted To Currency</label>
+                                {/* <GetOptions optionChoices={optionChoices}/> */}
+                                <Dropdown 
+                                    className="pa2 input-reset ba bg-transparent hover-bg-white w-100 black" 
+                                    arrowClosed={arrowClosed}
+                                    arrowOpen={arrowOpen}
+                                    options={options} 
+                                    onChange={this._onSelectTo} 
+                                    value={defaultOption} 
+                                    placeholder="~Please select currency~"                                                
+                                />
+                                {/* {console.log('19 this.state.selected =', this.state.selected)} */}
+                                {console.log('20 this.state.currencyTo =', this.state.currencyTo)}
+                            </div>
+                        </fieldset>
                         <div className="text-center">
                             <input 
                                 onClick={this.onSubmitCurrencyForm} 
