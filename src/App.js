@@ -226,6 +226,7 @@ class App extends Component {
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                                     <div className="px-4 py-5 flex-auto">
                                         <div className="mt-2 mb-4 text-gray-600">
+{/* NEED TO PASS FUNCTIONS, NOT VARIABLES. SEE SIGNIN & REGISTER  */}
                                             <CurrencyForm 
                                                 // onInputChange={this.onInputChange}  
                                                 // onButtonSubmit={this.onButtonSubmit}
@@ -252,10 +253,12 @@ class App extends Component {
                                 {console.log('27 currencyFrom =', currencyFrom)}     
                                 {console.log('28 this.state.currencyTo =', this.state.currencyTo)}  
                                 {console.log('29 currencyTo =', currencyTo)}    
+{/* NEED TO PASS FUNCTIONS, NOT VARIABLES. SEE SIGNIN & REGISTER  */}
                                 <ExchangeRate 
                                     amountIn={amountIn} amountIn={amountIn}
                                     currencyFrom={currencyFrom} currencyTo={currencyTo}                                
                                 />
+{/* NEED TO PASS FUNCTIONS, NOT VARIABLES. SEE SIGNIN & REGISTER  */}
                                 <CountryData
                                     currencyFrom={currencyFrom} currencyTo={currencyTo} countryA={countryA}
                                     countryB={countryB} languageA={languageA} languageB={languageB}
