@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
-import CurrencyForm from './components/CurrencyForm/CurrencyForm';
+import CurrencyForm from './components/CurrencyForm/CurrencyForm2';
 // import CurrencyName from './components/ExchangeRate/ExchangeRate';
-// import ExchangeRate from './components/ExchangeRate/ExchangeRate';
-// import CountryData from './components/CountryData/CountryData';
+import ExchangeRate from './components/ExchangeRate/ExchangeRate';
+import CountryData from './components/CountryData/CountryData';
 import AOS from 'aos';
 import Background from './images/goldcurrency1.jpg';
 // import GoldEuro from './images/goldcurrency2.jpg';
@@ -19,25 +19,19 @@ import Money from './images/papercurrency1.mp4';
 
 const initialState = {
 	input: '',
-	imageUrl: '',
     route: 'home',
     isSignedIn: false,
     amountIn: 0,
     amountOut: 0,
-    currencyFrom: '',
+    currencyFrom: 'Euro',
     currencyTo: '',
     countryA: '',
     countryB: '',
     languageA: '',
-    languageB: '',
-    populationA: '',
-    populationB: '',
-    capitalA: '',
-    capitalB: '',
-    regionA: '',
-    regionB: '',
     subregionA: '',
     subregionB: '',
+    populationA: 0,
+    populationB: 0,
 	user: {
 		id: '',
 		name: '',
@@ -86,9 +80,13 @@ class App extends Component {
 
 
     render() {
-        const { isSignedIn, route, amountIn, amountOut, currencyFrom, currencyTo } = this.state;
+        const { isSignedIn, route, amountIn, amountOut, currencyFrom, currencyTo, countryA, 
+            countryB, languageA, languageB, regionA, regionB, subregionA, subregionB, capitalA,
+            capitalB, populationA, populationB} = this.state;
         return (      
         <div>
+            {/* {console.log('21 this.state.currencyFrom =', this.state.currencyFrom)}  
+            {console.log('22 this.state.currencyFrom =', currencyFrom)}   */}
         
             {/* <Navbar transparent /> */}
             <main>         
@@ -221,10 +219,7 @@ class App extends Component {
                 : <section className=" bg-gray-300 -mt-24">
 
                     <div className="container mx-auto px-4">
-                                                {/*
-                                                <CurrencyName />
-                                                <ExchangeRate />
-                                                <CountryData /> */}
+                    
 
                         <div className="flex flex-wrap items-center mt-6">
                             <div className="w-full md:w-5/12 px-4  mr-auto ml-auto" data-aos="fade-up" data-aos-delay="1000">
@@ -232,29 +227,44 @@ class App extends Component {
                                     <div className="px-4 py-5 flex-auto">
                                         <div className="mt-2 mb-4 text-gray-600">
                                             <CurrencyForm 
-                                                onInputChange={this.onInputChange}  
-                                                onButtonSubmit={this.onButtonSubmit}
+                                                // onInputChange={this.onInputChange}  
+                                                // onButtonSubmit={this.onButtonSubmit}
                                                 amountIn={amountIn} 
-                                                amountOut={amountOut} 
                                                 currencyFrom={currencyFrom} 
                                                 currencyTo={currencyTo}
-                                            />
-                                            {console.log('21', this.state.currencyFrom)}                                            
+                                            />                                      
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {console.log('23 this.state.currencyFrom =', this.state.currencyFrom)}  
+                        {console.log('24 currencyFrom =', currencyFrom)}     
+                        {console.log('25 this.state.currencyTo =', this.state.currencyTo)}  
+                        {console.log('26 currencyTo =', currencyTo)}              
+
+                            
+                        {currencyFrom !== '' 
                         
-
-
-
-                        {currencyFrom !== '' && currencyFrom !== 'X' && 
-                            currencyTo !== '' && currencyTo !== 'X' && amountIn !== '' 
                         ? <div>
-                            <div className="flex flex-wrap items-center ">  
-                                <div className="flex flex-wrap items-center mt-24">
-
+                            <div className="items-center "> 
+                                {console.log('26 this.state.currencyFrom =', this.state.currencyFrom)}  
+                                {console.log('27 currencyFrom =', currencyFrom)}     
+                                {console.log('28 this.state.currencyTo =', this.state.currencyTo)}  
+                                {console.log('29 currencyTo =', currencyTo)}    
+                                <ExchangeRate 
+                                    amountIn={amountIn} amountIn={amountIn}
+                                    currencyFrom={currencyFrom} currencyTo={currencyTo}                                
+                                />
+                                <CountryData
+                                    currencyFrom={currencyFrom} currencyTo={currencyTo} countryA={countryA}
+                                    countryB={countryB} languageA={languageA} languageB={languageB}
+                                    capitalA={capitalA} capitalB={capitalB} regionA={regionA}
+                                    regionB={regionB} subregionA={subregionA} subregionB={subregionB}
+                                    populationA={populationA} populationB={populationB}
+                                />
+                                <div className=" items-center mt-24
+                                    text-center  justify-center">
                                     <div className="w-full md:w-8/12 px-4 mr-auto ml-auto  text-center" data-aos="zoom-in-up" data-aos-delay="0">
                                         {/* <div className="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
                                         <i className="fas fa-user-friends text-xl"></i>
@@ -263,29 +273,30 @@ class App extends Component {
                                         Your Currency Conversion                                
                                         </h3>
                                         <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                                        "AmountIn" "from currency" from "CountryName A" equals  
-                                        "AmountOut" "To currency" from "CountryName B". 
-                                        {/* £20 British Pound Sterling from the United Kingdom equals €21.85 Euro from France.                                 */}
+                                            amountIn{amountIn} currencyFrom{currencyFrom} from countryA{countryA} equals  
+                                            amountOut{amountOut} currencyTo{currencyTo} from countryB{countryB}. 
                                         </p>
                                     </div>
-                                </div>     
-                                <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="zoom-in-right">
+                                </div>  
+                            </div>
+                            <div className="flex flex-wrap items-center ">  
+   
+                            {/* was here */}
+                                <div className="w-full md:w-5/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="zoom-in-right">
                                     <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                                    "Country A"
-                                    {/* France */}
+                                    countryA{countryA}
                                     </h3>
                                     <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                                    "CountryName A" uses "from currency" as currency and speaks "languageA". 
-                                    {/* France uses Euro as currency and speaks French. */}
+                                        countryA{countryA} uses currencyFrom{currencyFrom} as currency and 
+                                        speaks languageA{languageA}. 
                                     </p>
                                     <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
-                                    "CountryName A" is located in "subregionA" within "regionA" and has a population of "populationA".
-                                    The capital of "CountryName A" is "capitalA".
-                                    {/* France is located in Western Europe within Europe and has a population of 66,990,000.
-                                    The capital of France is Paris. */}
+                                        countryA{countryA} is located in subregionA{subregionA} within 
+                                        regionA{regionA} and has a population of populationA{populationA}.
+                                        The capital of countryA{countryA} is capitalA{capitalA}.
                                     </p>
                                 </div>        
-                                <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="flip-left" data-aos-delay="1000">
+                                <div className="w-full md:w-5/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="flip-left" data-aos-delay="1000">
                                     <div className="relative flex flex-col min-w-0 bg-gray-300 w-full shadow-lg rounded-lg">
                                         <img
                                             alt="Flag of first country"
@@ -297,7 +308,7 @@ class App extends Component {
                             </div>
 
                             <div className="flex flex-wrap items-center">
-                                <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="flip-right" data-aos-delay="1000">
+                                <div className="w-full md:w-4/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="flip-right" data-aos-delay="1000">
                                     <div className="relative flex flex-col min-w-0 bg-gray-300 w-full  shadow-lg rounded-lg">
                                         <img
                                             alt="Flag of second country"
@@ -306,23 +317,24 @@ class App extends Component {
                                         />
                                     </div>
                                 </div>
-                                <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="zoom-in-left" data-aos-delay="0">
+                                <div className="w-full md:w-4/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="zoom-in-left" data-aos-delay="0">
                                     <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                                    "Country B"
+                                    countryB{capitalB}
                                     </h3>
                                     <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-                                    "CountryName B" uses "to currency" as currency and speaks "languageB". 
+                                        countryB{countryB} uses currencyFrom{currencyTo} as currency and 
+                                        speaks languageB{languageB}. 
                                     </p>
                                     <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
-                                    "CountryName B" is located in "subregionB" within "regionB" and has a population of "populationB".
-                                    The capital of "CountryName B" is "capitalB".
+                                        countryB{countryB} is located in subregionB{subregionB} within 
+                                        regionB{regionB} and has a population of populationB{populationB}.
+                                        The capital of countryB{countryB} is capitalB{capitalB}.
                                     </p>
                                 </div>    
                             </div>
                         </div>
                         : null
                         }
-
 
 
                     </div> 
