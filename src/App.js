@@ -19,7 +19,7 @@ import Money from './images/papercurrency1.mp4';
 
 const initialState = {
 	input: '',
-    route: 'signin',
+    route: 'home',
     isSignedIn: false,
     amountIn: 0,
     amountOut: 0,
@@ -253,12 +253,12 @@ class App extends Component {
                                 {console.log('27 currencyFrom =', currencyFrom)}     
                                 {console.log('28 this.state.currencyTo =', this.state.currencyTo)}  
                                 {console.log('29 currencyTo =', currencyTo)}    
-{/* NEED TO PASS FUNCTIONS, NOT VARIABLES. SEE SIGNIN & REGISTER  */}
+        {/* NEED TO PASS FUNCTIONS, NOT VARIABLES. SEE SIGNIN & REGISTER  */}
                                 <ExchangeRate 
                                     amountIn={amountIn} amountIn={amountIn}
                                     currencyFrom={currencyFrom} currencyTo={currencyTo}                                
                                 />
-{/* NEED TO PASS FUNCTIONS, NOT VARIABLES. SEE SIGNIN & REGISTER  */}
+                                {/* NEED TO PASS FUNCTIONS, NOT VARIABLES. SEE SIGNIN & REGISTER  */}
                                 <CountryData
                                     currencyFrom={currencyFrom} currencyTo={currencyTo} countryA={countryA}
                                     countryB={countryB} languageA={languageA} languageB={languageB}
@@ -287,7 +287,7 @@ class App extends Component {
                             {/* was here */}
                                 <div className="w-full md:w-5/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="zoom-in-right">
                                     <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                                    countryA{countryA}
+                                    United States of America{countryA}
                                     </h3>
                                     <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
                                         countryA{countryA} uses currencyFrom{currencyFrom} as currency and 
@@ -320,9 +320,9 @@ class App extends Component {
                                         />
                                     </div>
                                 </div>
-                                <div className="w-full md:w-4/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="zoom-in-left" data-aos-delay="0">
+                                <div className="w-full md:w-5/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="zoom-in-left" data-aos-delay="0">
                                     <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                                    countryB{capitalB}
+                                    France{capitalB}
                                     </h3>
                                     <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
                                         countryB{countryB} uses currencyFrom{currencyTo} as currency and 
