@@ -19,7 +19,7 @@ import Money from './images/papercurrency1.mp4';
 
 const initialState = {
 	input: '',
-    route: 'home',
+    route: 'signin',
     isSignedIn: false,
     amountIn: 0,
     amountOut: 0,
@@ -311,7 +311,7 @@ class App extends Component {
                             </div>
 
                             <div className="flex flex-wrap items-center">
-                                <div className="w-full md:w-4/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="flip-right" data-aos-delay="1000">
+                                <div className="w-full md:w-5/12 lg:w-4/12 px-4 mr-auto ml-auto mt-24" data-aos="flip-right" data-aos-delay="1000">
                                     <div className="relative flex flex-col min-w-0 bg-gray-300 w-full  shadow-lg rounded-lg">
                                         <img
                                             alt="Flag of second country"
