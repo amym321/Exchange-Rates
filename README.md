@@ -2,7 +2,7 @@
 
 The X-Change Rate Currency Converter is an elegant and very usable app that provides up to date exchange rates of currencies via an API along with country specific detail related to the original and ending currencies.
 
-<img src="https://github.com/amym321/Exchange-Rates/blob/master/src/images/PC1.jpg" width="450" >
+<img src="https://github.com/amym321/Exchange-Rates/blob/master/src/images/PC1.jpg" width="600" >
 
 ## Challenge 
 Create a free exchange rate app with an API for currency conversion along with another API for country specific data related to the two currencies.  
